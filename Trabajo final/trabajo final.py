@@ -1,14 +1,19 @@
+from colorama import init, Fore, Style
+
+init(autoreset=True)
+
 class Tarea:
     def __init__(self, descripcion):
         self.descripcion = descripcion
         self.completada = False 
-    
+
     def marcar_completada(self):
         self.completada = True
 
     def __str__(self):
         estado = "completada" if self.completada else "pendiente"
-        return f"{self.descripcion} - {estado}"
+        color = Fore.GREEN if self.completada else Fore.RED  # Verde para completada, rojo para pendiente
+        return f"{color}{self.descripcion} - {estado}"
 
 class ListaTareas:
     def __init__(self):
@@ -43,7 +48,7 @@ class ListaTareas:
 def main():
     lista_tareas = ListaTareas()
     while True:
-        print("\nGestor de Tareas")
+        print("\nGestor de Tareas Dani")  
         print("1. Agregar una nueva tarea")
         print("2. Marcar una tarea como completada")
         print("3. Mostrar todas las tareas")
