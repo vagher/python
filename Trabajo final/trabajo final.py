@@ -1,7 +1,8 @@
-class tarea:
+class Tarea:
     def __init__(self, descripcion):
         self.descripcion = descripcion
         self.completada = False 
+    
     def marcar_completada(self):
         self.completada = True
 
@@ -25,7 +26,7 @@ class ListaTareas:
         except IndexError:
             print("Error: La posición indicada no existe")
 
-    def mostrar_tareas (self):
+    def mostrar_tareas(self):
         if not self.tareas:
             print("No hay tareas pendientes.")
         else:
@@ -38,6 +39,7 @@ class ListaTareas:
             print("Tarea eliminada con éxito.")
         except IndexError:
             print("Error: La posición indicada no existe.")
+
 def main():
     lista_tareas = ListaTareas()
     while True:
@@ -54,7 +56,7 @@ def main():
             lista_tareas.agregar_tarea(descripcion)
         elif opcion == "2":
             try:
-                posicion= int(input("ingrese la posición de la tarea a marcar como completada: "))
+                posicion = int(input("Ingrese la posición de la tarea a marcar como completada: "))
                 lista_tareas.marcar_tarea_completada(posicion)
             except ValueError:
                 print("Error: Debe ingresar un número válido")
@@ -70,7 +72,7 @@ def main():
             print("Saliendo del gestor de tareas.")
             break
         else:
-            print("Opción no válida. Intentalo de nuevo.")
+            print("Opción no válida. Inténtalo de nuevo.")
 
 if __name__ == "__main__":
-    main()    
+    main()
